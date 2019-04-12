@@ -11,8 +11,8 @@
         <div class="value-prop">
           {% if forecast %}
           <h1 class="title m-5">Here is the weather tomorrow: </h1>
-          <p class= "m-5">Outside temperature is: {{ (forecast["daily"]["data"][1]["apparentTemperatureHigh"] -32)*5/9 }}°C </p>
-          <p class= "m-5">{{ forecast["currently"]["summary"] }} </p>
+          <h1 class= "m-5">Outside temperature is: {{ temp }}°C </h1>
+          <h1 class= "m-5">Forecast: {{ forecast }} </h1>
 
           {% else %}
           <h1 class="title m-5">Hey, sorry I don't know!</h1>

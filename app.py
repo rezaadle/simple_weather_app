@@ -13,8 +13,9 @@ def index():
     lat = current_location["latitude"]
     lon = current_location["longitude"]
     dark_sky = requests.get("https://api.darksky.net/forecast/{}/{},{}".format(dark_sky_api_key, lat, lon)).json()
-
-    return render_template("index.html", forecast =  dark_sky)
+    temp = round((dark_sky["daily"]["data"][1]["apparentTemperatureHigh"]-32)*5/9, 2)
+    summery = dark_sky["currently"]["summary"]
+    return render_template("index.html", temp = temp, forecast = summery)
 
 
 if __name__ == "__main__":
