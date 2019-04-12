@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+  <header class="full-header">
+      <div class="main-nav container p-2">
+         <ul class="nav">
+          <li class="name"><a href="index.html">Jedha</a></li>
+        </ul>
+      </div>
+      <div class="center-content">
+        <div class="value-prop">
+          {% if forecast %}
+          <h1 class="title m-5">Here is the weather tomorrow: </h1>
+          <p class= "m-5">Outside temperature is: {{ (forecast["daily"]["data"][1]["apparentTemperatureHigh"] -32)*5/9 }}°C </p>
+          <p class= "m-5">{{ forecast["currently"]["summary"] }} </p>
+
+          {% else %}
+          <h1 class="title m-5">Hey, sorry I don't know!</h1>
+          {% endif %}
+          <div class="d-flex flex-direction-row justify-content-center">
+            <a class ="CTA-projet m-5 col-md-12" href="{{ url_for('index') }}">Start Again</a>
+          </div>
+        </div>
+      </div>
+    </header>
+</body>
+{% endblock %}
